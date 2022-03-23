@@ -799,23 +799,26 @@ def fwhm2std(fwhm, **kwargs):
     
   Returns
   -------
-  value : float 
-    Value of the function.
+  float 
+    Standard deviation.
   
   Notes
   -----
+  std is roughly equal to hwhm (i.e. 0.5 fwhm)
   
+  Examples
+  --------
+  >>> fwhm2std(1) 
+  0.424...
+ 
   """  
   this_func = this_lib + 'fwhm2std: '
   verbos = Kwarg('verbos', 1, kwargs)
   if verbos == verbos_func:
     print(this_func + 'START')
   
-  value = fwhm / (2. * np.sqrt(2 * np.log(2)))
+  return fwhm / (2. * np.sqrt(2 * np.log(2)))
   
-  #print this_func + 'END'
-  return value
-
 
 # -------------------------------------------------------------------------------
 
